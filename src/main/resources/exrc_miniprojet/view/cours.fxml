@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="exrc_miniprojet.controller.CoursController">
+
+    <center>
+        <HBox spacing="14">
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="card">
+                <Label text="Cours" styleClass="h1"/>
+                <TableView fx:id="table" prefHeight="520">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colCode" text="Code" prefWidth="140"/>
+                        <TableColumn fx:id="colIntitule" text="Intitulé" prefWidth="360"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10">
+                    <Button text="Rafraîchir" onAction="#refresh" styleClass="btnSecondary"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Supprimer" onAction="#delete" styleClass="btnDanger"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10" prefWidth="360" styleClass="card">
+                <Label text="Formulaire" styleClass="h2"/>
+                <TextField fx:id="txtCode" promptText="Code (unique)"/>
+                <TextField fx:id="txtIntitule" promptText="Intitulé"/>
+                <HBox spacing="10">
+                    <Button text="Nouveau" onAction="#clear" styleClass="btnSecondary"/>
+                    <Button text="Ajouter" onAction="#add" styleClass="btnPrimary"/>
+                    <Button text="Modifier" onAction="#update" styleClass="btnPrimary"/>
+                </HBox>
+            </VBox>
+
+        </HBox>
+    </center>
+</BorderPane>

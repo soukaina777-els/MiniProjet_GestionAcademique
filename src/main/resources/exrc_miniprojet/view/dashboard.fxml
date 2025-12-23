@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="exrc_miniprojet.controller.DashboardController"
+            styleClass="root">
+
+    <!-- Top bar -->
+    <top>
+        <HBox spacing="12" styleClass="topbar" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="14" right="18" bottom="14" left="18"/>
+            </padding>
+
+            <Label text="Gestion Académique" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblHint" text="Accueil" styleClass="hint"/>
+        </HBox>
+    </top>
+
+    <!-- Left menu -->
+    <left>
+        <VBox styleClass="sidebar" spacing="10">
+            <padding>
+                <Insets top="18" right="12" bottom="18" left="12"/>
+            </padding>
+
+            <Label text="MENU" styleClass="sidebarTitle"/>
+
+            <Button text="Dashboard" onAction="#showHome" styleClass="navBtn"/>
+            <Button text="Filières" onAction="#openFiliere" styleClass="navBtn"/>
+            <Button text="Cours" onAction="#openCours" styleClass="navBtn"/>
+            <Button text="Étudiants" onAction="#openEleve" styleClass="navBtn"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="© ENSA" styleClass="sidebarFooter"/>
+        </VBox>
+    </left>
+
+    <!-- Center -->
+    <center>
+        <StackPane fx:id="contentPane" styleClass="content">
+
+            <!-- ✅ Home panel (Bienvenue) -->
+            <VBox fx:id="homePane" spacing="12" styleClass="card">
+                <padding>
+                    <Insets top="16" right="16" bottom="16" left="16"/>
+                </padding>
+
+                <Label text="Bienvenue 👋" styleClass="h1"/>
+
+                <Label text="Utilise le menu à gauche pour gérer les filières, les cours et les étudiants."
+                       wrapText="true"
+                       styleClass="p"/>
+
+                <Label text="Règles métier : unicité, cours ∈ filière, dossier unique, transactions, etc."
+                       wrapText="true"
+                       styleClass="muted"/>
+
+                <Separator/>
+
+                <VBox spacing="8">
+                    <Label text="✅ Fonctionnalités disponibles" styleClass="h2"/>
+                    <Label text="• Gestion des filières (CRUD + association cours)" styleClass="p"/>
+                    <Label text="• Gestion des cours (CRUD)" styleClass="p"/>
+                    <Label text="• Gestion des étudiants (CRUD + statut ACTIF/SUSPENDU + inscriptions)" styleClass="p"/>
+                    <Label text="• Dossier administratif unique par étudiant" styleClass="p"/>
+                </VBox>
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

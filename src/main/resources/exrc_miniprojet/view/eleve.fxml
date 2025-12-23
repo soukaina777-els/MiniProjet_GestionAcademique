@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="exrc_miniprojet.controller.EleveController">
+
+    <center>
+        <HBox spacing="14">
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="card">
+                <Label text="Étudiants" styleClass="h1"/>
+                <TableView fx:id="table" prefHeight="520">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colMat" text="Matricule" prefWidth="130"/>
+                        <TableColumn fx:id="colNom" text="Nom" prefWidth="130"/>
+                        <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="130"/>
+                        <TableColumn fx:id="colEmail" text="Email" prefWidth="220"/>
+                        <TableColumn fx:id="colStatut" text="Statut" prefWidth="90"/>
+                        <TableColumn fx:id="colFiliere" text="Filière" prefWidth="160"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10">
+                    <Button text="Rafraîchir" onAction="#refresh" styleClass="btnSecondary"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Supprimer" onAction="#delete" styleClass="btnDanger"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10" prefWidth="380" styleClass="card">
+                <Label text="Formulaire" styleClass="h2"/>
+
+                <TextField fx:id="txtMat" promptText="Matricule (unique)"/>
+                <TextField fx:id="txtNom" promptText="Nom"/>
+                <TextField fx:id="txtPrenom" promptText="Prénom"/>
+                <TextField fx:id="txtEmail" promptText="Email"/>
+
+                <HBox spacing="10">
+                    <Label text="Statut:" styleClass="muted"/>
+                    <ComboBox fx:id="cbStatut" prefWidth="160"/>
+                </HBox>
+
+                <Label text="Filière:" styleClass="muted"/>
+                <ComboBox fx:id="cbFiliere" />
+
+                <Label text="Inscription aux cours (de la filière)" styleClass="muted"/>
+                <ListView fx:id="listCoursFiliere" prefHeight="180"/>
+
+                <HBox spacing="10">
+                    <Button text="Nouveau" onAction="#clear" styleClass="btnSecondary"/>
+                    <Button text="Ajouter" onAction="#add" styleClass="btnPrimary"/>
+                    <Button text="Modifier" onAction="#update" styleClass="btnPrimary"/>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Button fx:id="btnSaveInscription" text="Enregistrer inscription"
+                            onAction="#saveInscription" styleClass="btnPrimary"/>
+                    <Button text="Dossier administratif" onAction="#openDossier" styleClass="btnSecondary"/>
+                </HBox>
+
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
